@@ -14,7 +14,7 @@ jobs:
           mkdir -p /root/ros2_ws/src/pkg_kadai 
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
           cd /root/ros2_ws
-          source /opt/ros/$ROS_DISTRO/setup.bash
+          source /opt/ros/jazzy/setup.bash
           colcon build
           source install/setup.bash
 
