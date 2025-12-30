@@ -1,0 +1,26 @@
+name: setup
+on: push
+jobs:
+  runs-on : ubuntu-22.04
+  container: ryuichiueda/ubuntu22.04-ros2:latest
+  steps:
+    - uses: actions/checkout@v2
+
+    - run: | 
+        rsync -av ./ /root/ros2_ws/src/pkg_kadai/
+        cd /root/ros2_ws
+        colcon build
+        source install/setup.bash
+
+
+name: executable
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest
+    run:
+      source install/setup.bash
+      timeout 5s ros2 run pkg_kadai player1 || [ $? -eq 124]
+      timeout 5s ros2 run pkg_kadai player2 || [ $? -eq 124]
+
