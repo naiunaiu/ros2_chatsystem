@@ -1,5 +1,6 @@
 name: setup
 on: push
+shell: bash
 jobs:
   test:
     runs-on : ubuntu-22.04
