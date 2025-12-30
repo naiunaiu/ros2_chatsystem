@@ -1,16 +1,17 @@
 name: setup
 on: push
 jobs:
-  runs-on : ubuntu-22.04
-  container: ryuichiueda/ubuntu22.04-ros2:latest
-  steps:
-    - uses: actions/checkout@v2
+  test:
+    runs-on : ubuntu-22.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest
+    steps:
+      - uses: actions/checkout@v2
 
-    - run: | 
-        rsync -av ./ /root/ros2_ws/src/pkg_kadai/
-        cd /root/ros2_ws
-        colcon build
-        source install/setup.bash
+      - run: | 
+          rsync -av ./ /root/ros2_ws/src/pkg_kadai/
+          cd /root/ros2_ws
+          colcon build
+          source install/setup.bash
 
 
 name: executable
