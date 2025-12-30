@@ -4,13 +4,17 @@ jobs:
   test:
     runs-on : ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v2
-      - shell: bash
-      - run: | 
+      - name: ros2 build
+        run: |
+          mkdir -p /root/ros2_ws/src/pkg_kadai 
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
           cd /root/ros2_ws
-          colcon build
           source /opt/ros/$ROS_DISTRO/setup.bash
+          colcon build
           source install/setup.bash
 
