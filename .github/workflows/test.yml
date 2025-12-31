@@ -4,7 +4,6 @@ jobs:
   test:
     runs-on : ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
-    fail-fast: false
     defaults:
       run:
         shell: bash
