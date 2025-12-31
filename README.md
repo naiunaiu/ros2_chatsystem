@@ -39,7 +39,6 @@ player1>> テスト
 
 ## 必要なソフトウェア
 - Python
-  - Python 3.7~3.10で検証済み
 
 ## テスト環境
   - Ubuntu 24.04 LTS

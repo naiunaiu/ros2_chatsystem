@@ -1,11 +1,10 @@
-name: setup
+
 on: push
 jobs:
   test:
     runs-on : ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
-    matrix:
-      python-version: ["3.7","3.8","3.9","3.10","3.11","3.12"]
+    fail-fast: false
     defaults:
       run:
         shell: bash
