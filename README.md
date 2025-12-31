@@ -13,22 +13,28 @@
 
     $ ros2 run pkg_kadai {実行ファイル名}
     ```
+##　機能
+- 実行ファイル名を変えることで、送信時に表示される名前を変更可能。
+
+- 相手の接続が確認できない場合、接続不可のエラーを表示。
 
 
 ## 使用例
 ```
 terminal_1:$ ros2 run pkg_kadai player1
 player1>
-No connection with partner #通信相手がいないとこれが表示される
-player2>>メッセージ
-player1>テスト
 
----以下別端末での使用例---
+No connection with partner #通信相手がいないとこれが表示される
+
+player2>> メッセージ
+player1> テスト
+
+---以下別端末---
 
 #別のターミナルでもう一方のノードを立ち上げる
 terminal_2:$ ros2 run pkg_kadai player2
-player2>メッセージ
-player1>>テスト
+player2> メッセージ
+player1>> テスト
 ```
 
 ## 必要なソフトウェア
