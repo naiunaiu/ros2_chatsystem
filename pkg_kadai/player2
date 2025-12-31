@@ -23,7 +23,7 @@ status_data = ""
 
 #メッセージ表示用
 def callduck(msg):
-    print(f"\n{msg.data}\n", end="")
+    print(f"{msg.data}\n")
  
 #ステータス受信時trueにする
 def cellback(status):
@@ -56,7 +56,7 @@ def main():
     #すれど１
     try:
         while rclpy.ok():
-            keyinput = input("\n" + myname + "> ")
+            keyinput = input(myname + "> ")
             msg = String()
             msg.data = myname + ">>" + keyinput
             pub_msg.publish(msg)

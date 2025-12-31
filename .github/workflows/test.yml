@@ -16,7 +16,9 @@ jobs:
           cd /root/ros2_ws
           source /opt/ros/humble/setup.bash
           colcon build
-          ls -l /opt/ros/
-          printenv
           source install/setup.bash
+
+          timeout 5s ros2 run pkg_kadai player1 || [ $? -eq 124]
+          timeout 5s ros2 run pkg_kadai player2 || [ $? -eq 124]
+
 

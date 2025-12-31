@@ -21,7 +21,7 @@ Is_partner_active = False
 status_data = ""
 
 def callduck(msg):
-    print(f"\n{msg.data}\n", end="")
+    print(f"{msg.data}\n")
     
 #ステータス受信時trueにする
 def cellback(status):
@@ -36,7 +36,7 @@ def statusback():
     if Is_partner_active:
         Is_partner_active = False
     else:
-        sys.stderr.write("No connection with partner.\n")
+        sys.stderr.write("No connection with partner.")
     stat = Int16()
     stat.data = n
     pub_status.publish(stat)
@@ -51,10 +51,12 @@ def main():
     #すれど２,３
     thread_status.start()
     
+    print("うんち！！！")
+    
     #すれど１
     try:
         while rclpy.ok():
-            keyinput = input("\n" + myname + "> ")
+            keyinput = input(myname + "> ")
             msg = String()
             msg.data = myname + ">>" + keyinput
             pub_msg.publish(msg)
