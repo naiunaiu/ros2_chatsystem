@@ -4,6 +4,8 @@ jobs:
   test:
     runs-on : ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
+    matrix:
+      python-version: ["3.7","3.8","3.9","3.10","3.11","3.12"]
     defaults:
       run:
         shell: bash
@@ -14,11 +16,12 @@ jobs:
           mkdir -p /root/ros2_ws/src/pkg_kadai 
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
           cd /root/ros2_ws
-          source /opt/ros/humble/setup.bash
           colcon build
           source install/setup.bash
 
-          timeout 5s ros2 run pkg_kadai player1 || [ $? -eq 124]
-          timeout 5s ros2 run pkg_kadai player2 || [ $? -eq 124]
+          echo "TestTestesttetst" | timeout 5s ros2 run pkg_kadai player1 || [ $? -eq 124 ]
+          echo "TeststeststeTest" | timeout 5s ros2 run pkg_kadai player2 || [ $? -eq 124 ]
+      - name: test
+        run: python3 test/test.py
 
 

@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: 2025 Satoh-Narumi
 # SPDX-License-Identifier: BSD-3-Clause
 
-import os
 import sys
 import time
 import subprocess
@@ -26,8 +25,6 @@ def text_inserter(input_text):
     return stdout, stderror
     
 def main():
-    
-    pub = text_inserter()
     
     try:
         time.sleep(2)

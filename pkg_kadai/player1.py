@@ -64,5 +64,7 @@ def main():
             
     except KeyboardInterrupt:
         pass
+    except EOFError:
+        keyinput = " "
     
     node.destroy_node()
