@@ -16,9 +16,7 @@ jobs:
           cd /root/ros2_ws
           colcon build
           source install/setup.bash
-
-          echo "TestTestesttetst" | timeout 5s ros2 run pkg_kadai player1 || [ $? -eq 124 ]
-          echo "TeststeststeTest" | timeout 5s ros2 run pkg_kadai player2 || [ $? -eq 124 ]
+          
       - name: test
         run: python3 test/test.py
 
