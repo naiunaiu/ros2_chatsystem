@@ -3,7 +3,7 @@
 ## ros2チャットシステム
 ![test](https://github.com/naiunaiu/robosys2025/actions/workflows/test.yml/badge.svg)
 
-2つのデバイス間でチャットが出来るros2パッケージ。
+2つの端末間でチャットが出来るros2パッケージ。
 
 ## 使い方
 
@@ -13,7 +13,7 @@
 
     $ ros2 run pkg_kadai {実行ファイル名}
     ```
-##　機能
+## 機能
 - 実行ファイル名を変えることで、送信時に表示される名前を変更可能。
 
 - 相手の接続が確認できない場合、接続不可のエラーを表示。
