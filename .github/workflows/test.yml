@@ -19,6 +19,8 @@ jobs:
           
       - name: test
         run: |
+          cd /root/ros2_ws
+          source /opt/ros/humble/setup.bash
           source install/setup.bash
           python3 test/test.py
 
