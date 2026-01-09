@@ -3,7 +3,7 @@
 ## ros2チャットシステム
 ![test](https://github.com/naiunaiu/robosys2025/actions/workflows/test.yml/badge.svg)
 
-2つの端末間でチャットが出来るros2パッケージ。
+複数端末間でチャットが出来るros2パッケージ。
 
 ## 使い方
 
@@ -17,6 +17,15 @@
 - 実行ファイル名を変えることで、送信時に表示される名前を変更可能。
 
 - 相手の接続が確認できない場合、接続不可のエラーを表示。
+
+## 構造
+- 建てられるノード
+  - bun2_node_<実行ファイル名>
+  メッセージを受け取り、送信するノード。実行ファイルの名前によって名前が変化する。
+
+- 作られるトピック
+  - top_pub
+  メッセージを送るトピック。
 
 
 ## 使用例
@@ -32,7 +41,7 @@ player1> テスト
 ---以下別端末---
 
 #別のターミナルでもう一方のノードを立ち上げる
-terminal_2:$ ros2 run pkg_kadai player2
+terminal_2:$ ros2 run pkg_kadai2 player2
 player2> メッセージ
 player1>> テスト
 ```

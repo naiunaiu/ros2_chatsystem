@@ -25,7 +25,6 @@ setup(
     entry_points={
         'console_scripts': [
             'player1 = pkg_kadai.player1:main',
-            'player2 = pkg_kadai.player2:main',
         ],
     },
 )

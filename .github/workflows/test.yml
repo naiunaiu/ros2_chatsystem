@@ -23,7 +23,7 @@ jobs:
           source /opt/ros/humble/setup.bash
           source install/setup.bash
           cd /root/ros2_ws/src/pkg_kadai/test
-          python3 test.py
+          bash -xv ./test.bash
 
 
 
