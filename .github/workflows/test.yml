@@ -13,9 +13,14 @@ jobs:
         run: |
           mkdir -p /root/ros2_ws/src/pkg_kadai 
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
+          mv ./ /root/ros2_ws/src/pkg_kadai ./ /root/ros2_ws/src/pkg_kadai2
+          rsync -av ./ /root/ros2_ws/src/pkg_kadai/
+          mv ./ /root/ros2_ws/src/pkg_kadai ./ /root/ros2_ws/src/pkg_kadai3
+          rsync -av ./ /root/ros2_ws/src/pkg_kadai/
           cd /root/ros2_ws
           colcon build
           source install/setup.bash
+
           
       - name: test
         run: |
