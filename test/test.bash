@@ -8,6 +8,9 @@ dir=~
 cd /root/ros2_ws
 mv src/pkg_kadai2/pkg_kadai2/player1.py src/pkg_kadai2/pkg_kadai2/player2.py
 mv src/pkg_kadai3/pkg_kadai3/player1.py src/pkg_kadai3/pkg_kadai3/player3.py
+ls /root/ros2_ws/src/pkg_kadai2
+ls /root/ros2_ws/src/pkg_kadai3
+cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
