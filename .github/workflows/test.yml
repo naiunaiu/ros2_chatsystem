@@ -11,12 +11,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: ros2 build
         run: |
-          mkdir -p /root/ros2_ws/src/pkg_kadai 
+          mkdir -p /root/ros2_ws/src/pkg_kadai
+          mkdir -p /root/ros2_ws/src/pkg_kadai2
+          mkdir -p /root/ros2_ws/src/pkg_kadai3
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
-          mv ./ /root/ros2_ws/src/pkg_kadai ./ /root/ros2_ws/src/pkg_kadai2
-          rsync -av ./ /root/ros2_ws/src/pkg_kadai/
-          mv ./ /root/ros2_ws/src/pkg_kadai ./ /root/ros2_ws/src/pkg_kadai3
-          rsync -av ./ /root/ros2_ws/src/pkg_kadai/
+          rsync -av ./ /root/ros2_ws/src/pkg_kadai2/ 
+          rsync -av ./ /root/ros2_ws/src/pkg_kadai3/
           cd /root/ros2_ws
           colcon build
           source install/setup.bash
