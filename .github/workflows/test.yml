@@ -17,8 +17,9 @@ jobs:
           rsync -av ./ /root/ros2_ws/src/pkg_kadai/
           rsync -av ./ /root/ros2_ws/src/pkg_kadai2/ 
           rsync -av ./ /root/ros2_ws/src/pkg_kadai3/
+          ls ros2_ws/src/pkg_kadai2 
           sed -i "s@<name>pkg_kadai@<name>pkg_kadai2@g" /root/ros2_ws/src/pkg_kadai2/package.xml
-          sed -i"s@<name>pkg_kadai@<name>pkg_kadai3@g" /root/ros2_ws/src/pkg_kadai3/package.xml
+          sed -i "s@<name>pkg_kadai@<name>pkg_kadai3@g" /root/ros2_ws/src/pkg_kadai3/package.xml
           sed -i "s@lib/pkg_kadai@lib/pkg_kadai2@g" /root/ros2_ws/src/pkg_kadai2/setup.cfg
           sed -i "s@lib/pkg_kadai@lib/pkg_kadai3@g" /root/ros2_ws/src/pkg_kadai3/setup.cfg
           sed -i "s@package_name = 'pkg_kadai'@package_name = 'pkg_kadai2'@g" /root/ros2_ws/src/pkg_kadai2/setup.py
