@@ -27,7 +27,8 @@ jobs:
           mv /root/ros2_ws/src/pkg_kadai2/pkg_kadai /root/ros2_ws/src/pkg_kadai2/pkg_kadai2
           mv /root/ros2_ws/src/pkg_kadai3/resource/pkg_kadai /root/ros2_ws/src/pkg_kadai3/resource/pkg_kadai3
           mv /root/ros2_ws/src/pkg_kadai3/pkg_kadai /root/ros2_ws/src/pkg_kadai3/pkg_kadai3
-          ls
+          ls /root/ros2_ws/src/pkg_kadai2
+          ls /root/ros2_ws/src/pkg_kadai2
           cd /root/ros2_ws
           colcon build
           source install/setup.bash
