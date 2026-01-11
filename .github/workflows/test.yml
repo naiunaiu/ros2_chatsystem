@@ -24,6 +24,8 @@ jobs:
           sed -i "s@lib/pkg_kadai@lib/pkg_kadai3@g" /root/ros2_ws/src/pkg_kadai3/setup.cfg
           sed -i "s@package_name = 'pkg_kadai'@package_name = 'pkg_kadai2'@g" /root/ros2_ws/src/pkg_kadai2/setup.py
           sed -i "s@package_name = 'pkg_kadai'@package_name = 'pkg_kadai3'@g" /root/ros2_ws/src/pkg_kadai3/setup.py
+          mv /root/ros2_ws/src/pkg_kadai2/resource/pkg_kadai pkg_kadai2
+          mv /root/ros2_ws/src/pkg_kadai3/resource/pkg_kadai pkg_kadai3
           cd /root/ros2_ws
           colcon build
           source install/setup.bash

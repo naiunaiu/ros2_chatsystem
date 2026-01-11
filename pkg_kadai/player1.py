@@ -21,7 +21,7 @@ def callduck(msg = String()):
     if myname.replace(".py", "") in name or message == " ":
         return
     else:
-        sys.stdout.write(f"\r{msg.data}\n{myname.replace(".py", "")}>")
+        sys.stdout.write(f"\r{msg.data}\n{myname.replace('.py', '')}>")
         sys.stdout.flush()
     
 #ステータス受信時trueにする
