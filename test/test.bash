@@ -6,8 +6,8 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd /root/ros2_ws
-mv src/pkg_kadai/pkg_kadai2/player1.py player2.py
-mv src/pkg_kadai/pkg_kadai3/player1.py player3.py
+mv src/pkg_kadai/pkg_kadai2/player1.py src/pkg_kadai/pkg_kadai2/player2.py
+mv src/pkg_kadai/pkg_kadai3/player1.py src/pkg_kadai/pkg_kadai3/player3.py
 colcon build
 source install/setup.bash
 
