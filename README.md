@@ -3,7 +3,7 @@
 ## ros2チャットシステム
 ![test](https://github.com/naiunaiu/robosys2025/actions/workflows/test.yml/badge.svg)
 
-複数端末間でチャットが出来るros2パッケージ。
+複数端末間でチャットが出来るトピックを提供するros2パッケージ。
 
 ## 使い方
 
