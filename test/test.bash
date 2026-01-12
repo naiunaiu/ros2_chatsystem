@@ -21,12 +21,13 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-unbuffer | timeout 10 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+printf "taste\n" | ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+PID1=$!
 sleep 2
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
-unbuffer echo 'taste' | timeout 10 -i0 -o0 -e0 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
-unbuffer echo 'test' | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
-unbuffer echo 'torst' | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
+printf "taste\n" | timeout 10 -i0 -o0 -e0 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+printf "test\n" | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
+printf "torst\n" | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
 sleep 1
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
@@ -34,5 +35,7 @@ cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
 cat /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai2.log
 cat /tmp/pkg_kadai3.log
+kill -INT $PID1
+wait $PID1 || true
 echo OK
 exit $res
