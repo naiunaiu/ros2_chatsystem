@@ -4,6 +4,11 @@
 
 dir=~
 [ "$1" != "" ] && dir="$1"
+ng () {
+	echo ${1}行目ダメよ
+	res=1
+}
+res=0
 
 cd /root/ros2_ws
 mv src/pkg_kadai2/pkg_kadai2/player1.py src/pkg_kadai2/pkg_kadai2/player2.py
@@ -21,6 +26,9 @@ cat /tmp/pkg_kadai.log | grep 'player1:No connection with partner'
 sleep 1
 echo 'test' | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
 echo 'torst' | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
-cat /tmp/pkg_kadai.log | grep 'player3:torst'
-cat /tmp/pkg_kadai2.log | grep 'player1:taste'
-cat /tmp/pkg_kadai3.log | grep 'player2:test'
+cat /tmp/pkg_kadai.log | grep 'player3:torst' || ng "$LINENO"
+cat /tmp/pkg_kadai2.log | grep 'player1:taste' || ng "$LINENO"
+cat /tmp/pkg_kadai3.log | grep 'player2:test' || ng "$LINENO"
+
+echo OK
+exit $res
