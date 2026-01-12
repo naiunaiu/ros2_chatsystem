@@ -16,11 +16,11 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-echo 'taste' | ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+echo 'taste' | timeout 10 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai.log | grep 'player1:No connection with partner'
 sleep 1
-echo 'test' | ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
-echo 'torst' | ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
-cat /tmp/pkg_kadai.log | grep 'player1:torst'
-cat /tmp/pkg_kadai2.log | grep 'player2:taste'
-cat /tmp/pkg_kadai3.log | grep 'player3:test'
+echo 'test' | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
+echo 'torst' | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
+cat /tmp/pkg_kadai.log | grep 'player3:torst'
+cat /tmp/pkg_kadai2.log | grep 'player1:taste'
+cat /tmp/pkg_kadai3.log | grep 'player2:test'
