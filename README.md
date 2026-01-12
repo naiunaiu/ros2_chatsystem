@@ -48,6 +48,8 @@ terminal_2:$ ros2 run pkg_kadai2 player2
 player2> メッセージ
 player1>> テスト
 ```
+##　注意
+- 同名のノード同士ではメッセージの送受信ができないので、実行ファイル名の名前は被らないようにする。
 
 ## 必要なソフトウェア
 - Python
