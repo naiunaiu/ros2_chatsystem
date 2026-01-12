@@ -29,6 +29,8 @@ echo 'torst' | ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
 cat /tmp/pkg_kadai.log | grep 'torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'test' || ng "$LINENO"
-
+cat /tmp/pkg_kadai.log
+cat /tmp/pkg_kadai2.log
+cat /tmp/pkg_kadai3.log
 echo OK
 exit $res
