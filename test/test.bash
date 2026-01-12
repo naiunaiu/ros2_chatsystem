@@ -21,11 +21,11 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-echo 'taste' | ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+echo 'taste' | PYTHONUNBUFFERED=1 timeout --foreground 10 stdbuf -i0 -o0 -e0ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 sleep 2
-echo 'test' | ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
-echo 'torst' | ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
+echo 'test' |PYTHONUNBUFFERED=1 timeout --foreground 10 stdbuf -i0 -o0 -e0 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
+echo 'torst' |PYTHONUNBUFFERED=1 timeout --foreground 10 stdbuf -i0 -o0 -e0 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
 cat /tmp/pkg_kadai.log | grep 'torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'test' || ng "$LINENO"
