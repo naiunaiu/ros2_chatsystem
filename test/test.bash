@@ -21,13 +21,13 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-printf "taste\n" | ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+printf "taste\n" | ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log 2>&1 &
 PID1=$!
 sleep 2
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
-printf "taste\n" | timeout 10 -i0 -o0 -e0 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
-printf "test\n" | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log
-printf "torst\n" | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log
+printf "taste\n" | timeout 10 -i0 -o0 -e0 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log 2>&1 &
+printf "test\n" | timeout 10 ros2 run pkg_kadai2 player2 >> /tmp/pkg_kadai2.log 2>&1 &
+printf "torst\n" | timeout 10 ros2 run pkg_kadai3 player3 >> /tmp/pkg_kadai3.log 2>&1 &
 sleep 1
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
