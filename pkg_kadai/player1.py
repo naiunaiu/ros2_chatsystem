@@ -9,9 +9,6 @@ from rclpy.node import Node
 from std_msgs.msg import String
 import threading
 
-import signal
-signal.signal(signal.SIGTERM, signal.SIG_DFL)
-
 myname = os.path.basename(__file__)
 rclpy.init()
 node = Node("bun2_node" + myname.replace(".py", ""))    
