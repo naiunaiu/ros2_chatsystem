@@ -21,8 +21,7 @@ def callduck(msg = String()):
     if myname.replace(".py", "") in name or message == " ":
         return
     else:
-        sys.stdout.write(f"\r{msg.data}\n{myname.replace('.py', '')}>")
-        sys.stdout.flush()
+        print(f"\r{msg.data}\n{myname.replace('.py', '')}>", end="")
     
 #ステータス受信時trueにする
 def cellback(status = String()):
