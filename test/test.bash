@@ -35,7 +35,5 @@ cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
 cat /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai2.log
 cat /tmp/pkg_kadai3.log
-kill -INT $PID1
-wait $PID1 || true
 echo OK
 exit $res

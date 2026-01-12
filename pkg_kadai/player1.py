@@ -53,17 +53,17 @@ def main():
     thread_status.start()
     
     #すれど１
-    try:
-        while rclpy.ok():
-            print(myname.replace(".py", "") + "> ", end="", flush=True)
+    while rclpy.ok() and sys.stdin.isatty():
+        print(myname.replace(".py", "") + "> ", end="", flush=True)
+        try:
             keyinput = input()
-            msg = String()
-            msg.data = myname.replace(".py", "") + ">> " + keyinput
-            pub_msg.publish(msg)
+        except EOFError:
+            break
+        
+        msg = String()
+        msg.data = myname.replace(".py", "") + ">> " + keyinput
+        pub_msg.publish(msg)
             
-    except KeyboardInterrupt:
-        pass
-    except EOFError:
-        keyinput = " "
     
     node.destroy_node()
+    rclpy.shutdown()
