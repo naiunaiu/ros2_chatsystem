@@ -26,9 +26,9 @@ expect -c "
   expect \"No connection with partner \"
   sleep 1
   send \"taste\r\"
+  sleep 2
   send \"/exit\r\"
 " > /tmp/pkg_kadai.log 2>&1
-sleep 2
 expect -c "
   spawn ros2 run pkg_kadai2 player2
   expect \"player2> \"
