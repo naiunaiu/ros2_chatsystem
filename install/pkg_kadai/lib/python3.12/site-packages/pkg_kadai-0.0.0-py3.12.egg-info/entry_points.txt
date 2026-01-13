@@ -1,2 +1,0 @@
-[console_scripts]
-player1 = pkg_kadai.player1:main
