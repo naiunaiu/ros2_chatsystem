@@ -21,7 +21,7 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-(sleep 1; echo "taste") | PYTHONUNBUFFERED=1 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+(sleep 1; printf "taste") | PYTHONUNBUFFERED=1 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
 sleep 4
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 cat /tmp/pkg_kadai.log
