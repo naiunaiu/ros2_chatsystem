@@ -17,17 +17,16 @@ sed -i "s@'player1 = pkg_kadai.player1:main',@'player2 = pkg_kadai2.player2:main
 cd /root/ros2_ws
 colcon build
 source install/setup.bash
-
 expect -c "
   spawn ros2 run pkg_kadai player1
-  sleep 9
+  expect \"player1> \"
   send \"taste\r\"
   sleep 2
   send \"/exit\r\"
 " > /tmp/pkg_kadai.log 2>&1
 expect -c "
   spawn ros2 run pkg_kadai2 player2
-  sleep 9
+  expect \"player2> \"
   send \"test\r\"
   sleep 2
   send \"/exit\r\"

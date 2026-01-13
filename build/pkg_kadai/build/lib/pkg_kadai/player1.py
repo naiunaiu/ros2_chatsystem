@@ -63,21 +63,20 @@ def main():
     #すれど１
     try:
         while rclpy.ok():
-            if Is_someone_active:
-                print(myname.replace(".py", "") + "> ", end="")
-                sys.stdout.flush()
-                try:
-                    keyinput = input()
-                except EOFError:
-                    break
+            print(myname.replace(".py", "") + "> ", end="")
+            sys.stdout.flush()
+            try:
+                keyinput = input()
+            except EOFError:
+                break
         
-                msg = String()
-                if "/exit" in keyinput:
-                    if rclpy.ok():
-                        pass
-                else:
-                    msg.data = myname.replace(".py", "") + ">> " + keyinput
-                    pub_msg.publish(msg)      
+            msg = String()
+            if "/exit" in keyinput:
+                if rclpy.ok():
+                    pass
+            else:
+                msg.data = myname.replace(".py", "") + ">> " + keyinput
+                pub_msg.publish(msg)      
     except KeyboardInterrupt:
         pass
     finally:
