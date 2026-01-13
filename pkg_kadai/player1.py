@@ -62,7 +62,7 @@ def main():
     
     #すれど１
     try:
-        while rclpy.ok() and not sys.stdin.isatty():
+        while rclpy.ok():
             print(myname.replace(".py", "") + "> ", end="", flush=True)
             try:
                 keyinput = input()
