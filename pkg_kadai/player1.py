@@ -63,7 +63,8 @@ def main():
     #すれど１
     try:
         while rclpy.ok():
-            print(myname.replace(".py", "") + "> ", end="")
+            sys.stdout.write(myname.replace(".py", "") + "> ", end="")
+            sys.stdout.flush()
             try:
                 keyinput = input()
             except EOFError:
