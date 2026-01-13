@@ -21,16 +21,14 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
+timeout 4 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log 2>&1
 sleep 2
 cat /tmp/pkg_kadai.log
-ros2 topic pub_msg --once /control std_msgs/String "{data: '/exit'}"
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
-(sleep 1; echo "taste") | ros2 run pkg_kadai player1 >> /tmp/pkg_kadai.log
-(sleep 1; echo "test") | ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log
-(sleep 1; echo "torst") | ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log
+(sleep 1; echo "taste") | timeout 10 ros2 run pkg_kadai player1 >> /tmp/pkg_kadai.log 2>&1
+(sleep 1; echo "test") | timeput 10 ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log 2>&1
+(sleep 1; echo "torst") | timeout 10 ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log 2>&1
 sleep 2
-ros2 topic pub_msg --once /control std_msgs/String "{data: '/exit'}"
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
