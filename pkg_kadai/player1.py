@@ -9,12 +9,14 @@ from rclpy.node import Node
 from std_msgs.msg import String
 import threading
 
+
 myname = os.path.basename(__file__)
 rclpy.init()
 node = Node("bun2_node" + myname.replace(".py", ""))    
 pub_msg = node.create_publisher(String, "top_pub", 10)
 pub_status = node.create_publisher(String, "top_stat", 10)
 Is_someone_active = False
+Death = False
 
 def callduck(msg = String()):
     name, message = msg.data.split(">>", 1)
@@ -22,6 +24,8 @@ def callduck(msg = String()):
         return
     else:
         print(f"\r{msg.data}\n{myname.replace('.py', '')}>", end="")
+    if Death:
+        pass
     
 #ステータス受信時trueにする
 def cellback(status = String()):
@@ -30,7 +34,9 @@ def cellback(status = String()):
         return
     else:
         Is_someone_active = True  
-
+    if Death:
+        pass
+    
 #ステータス確認用
 def statusback():
     global Is_someone_active
@@ -41,6 +47,8 @@ def statusback():
     stat = String()
     stat.data = myname
     pub_status.publish(stat)
+    if Death:
+        pass
     
     
 def main():
@@ -62,10 +70,19 @@ def main():
                 break
         
             msg = String()
-            msg.data = myname.replace(".py", "") + ">> " + keyinput
-            pub_msg.publish(msg)
+            if "/exit" in keyinput:
+                if rclpy.ok():
+                    pass
+            else:
+                msg.data = myname.replace(".py", "") + ">> " + keyinput
+                pub_msg.publish(msg)      
     except KeyboardInterrupt:
         pass
-    
-    node.destroy_node()
-    rclpy.shutdown()
+    finally:
+        if rclpy.ok():
+            global Death
+            Death = True
+            node.destroy_node()
+            rclpy.shutdown()
+            thread_status.join()
+            sys.exit(0)
