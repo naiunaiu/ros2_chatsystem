@@ -27,19 +27,19 @@
   メッセージを受け取り、送信するノード。実行ファイルの名前によって名前が変化する。
 
 - 作られるトピック
-  - top_pub (String)
+  - top_pub (String型)
   入力したメッセージを送るトピック。
-  - top_stat (String)
+  - top_stat (String型)
   ステータスを送信するトピック。このトピックから何か受信すれば、通信を確立できたことになる。
 
 
 ## 使用例
 ```
 terminal_1:$ ros2 run pkg_kadai player1
-player1>
-
 No connection with partner #通信相手がいないとこれが表示される
+...
 
+player1> #通信確立で入力欄が出現
 player2>> メッセージ
 player1> テスト
 player1> /exit #/exit入力でプログラム終了
