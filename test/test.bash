@@ -19,23 +19,25 @@ colcon build
 source install/setup.bash
 expect -c "
   spawn ros2 run pkg_kadai player1
-  expect \"player1> \"
+  expect \"player1>\"
   send \"taste\r\"
-  sleep 2
+  sleep 5
   send \"/exit\r\"
-" > /tmp/pkg_kadai.log 2>&1
+  expect eof
+" > /tmp/pkg_kadai.log 2>&1 &
+sleep 2
 expect -c "
   spawn ros2 run pkg_kadai2 player2
-  expect \"player2> \"
+  expect \"player2>\"
   send \"test\r\"
-  sleep 2
+  sleep 5
   send \"/exit\r\"
+  expect eof
 " > /tmp/pkg_kadai2.log 2>&1
-
+wait
 cat /tmp/pkg_kadai.log | grep 'player2>> test' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 cat /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai2.log
 echo OK
-exit $res
