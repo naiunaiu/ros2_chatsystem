@@ -24,11 +24,13 @@ source install/setup.bash
 ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log
 sleep 2
 cat /tmp/pkg_kadai.log
+ros2 topic pub_msg --once /control std_msgs/String "{data: '/exit'}"
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 (sleep 1; echo "taste") | ros2 run pkg_kadai player1 >> /tmp/pkg_kadai.log
 (sleep 1; echo "test") | ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log
 (sleep 1; echo "torst") | ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log
 sleep 2
+ros2 topic pub_msg --once /control std_msgs/String "{data: '/exit'}"
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
