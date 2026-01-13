@@ -28,7 +28,6 @@ expect -c "
 expect -c "
   spawn ros2 run pkg_kadai2 player2
   sleep 9
-  expect \"player2> \"
   send \"test\r\"
   sleep 2
   send \"/exit\r\"
