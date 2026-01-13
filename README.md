@@ -46,7 +46,7 @@ player1> /exit #/exit入力でプログラム終了
 
 ---以下別端末---
 
-#別のターミナルでもう一方のノードを立ち上げる
+#別の端末でもう一方のノードを立ち上げる
 terminal_2:$ ros2 run pkg_kadai2 player2
 player2> メッセージ
 player1>> テスト
