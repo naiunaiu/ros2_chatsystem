@@ -26,7 +26,7 @@ sleep 2
 cat /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 (sleep 1; echo "taste") | timeout 10 ros2 run pkg_kadai player1 >> /tmp/pkg_kadai.log 2>&1
-(sleep 1; echo "test") | timeput 10 ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log 2>&1
+(sleep 1; echo "test") | timeout 10 ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log 2>&1
 (sleep 1; echo "torst") | timeout 10 ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log 2>&1
 sleep 2
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
