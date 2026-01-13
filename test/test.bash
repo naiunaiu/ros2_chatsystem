@@ -21,9 +21,17 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log 
-sleep 4
+ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log --ros-args -p my_input:="taste"
+sleep 2
+ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log --ros-args -p my_input:="test"
+ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log --ros-args -p my_input:="torst"
+sleep 1
+cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
+cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
+cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
 cat /tmp/pkg_kadai.log | grep 'No connection with partner' || ng "$LINENO"
 cat /tmp/pkg_kadai.log
+cat /tmp/pkg_kadai2.log
+cat /tmp/pkg_kadai3.log
 echo OK
-exit $res
+exit = $res
