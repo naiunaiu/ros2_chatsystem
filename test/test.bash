@@ -9,7 +9,7 @@ ng () {
 	res=1
 }
 res=0
-
+sudo apt-get install -y expect
 cd /root/ros2_ws
 mv src/pkg_kadai2/pkg_kadai2/player1.py src/pkg_kadai2/pkg_kadai2/player2.py
 mv src/pkg_kadai3/pkg_kadai3/player1.py src/pkg_kadai3/pkg_kadai3/player3.py
@@ -21,11 +21,30 @@ cd /root/ros2_ws
 colcon build
 source install/setup.bash
 
-ros2 run pkg_kadai player1 > /tmp/pkg_kadai.log --ros-args -p my_input:="taste"
+expect -c "
+  spawn ros2 run pkg_kadai player1
+  expect \"No connection with partner \"
+  sleep 1
+  send \"taste\r\"
+  send \"/exit\r\"
+" >> /tmp/pkg_kadai.log 2>&1
 sleep 2
-ros2 run pkg_kadai2 player2 > /tmp/pkg_kadai2.log --ros-args -p my_input:="test"
-ros2 run pkg_kadai3 player3 > /tmp/pkg_kadai3.log --ros-args -p my_input:="torst"
-sleep 1
+expect -c "
+  spawn ros2 run pkg_kadai2 player2
+  expect \"player2> \"
+  sleep 1
+  send \"test\r\"
+  sleep 2
+  send \"/exit\r\"
+" >> /tmp/pkg_kadai.log 2>&1
+expect -c "
+  spawn ros2 run pkg_kadai3 player3
+  expect \"player3> \"
+  sleep 1
+  send \"torst\r\"
+  sleep 2
+  send \"/exit\r\"
+" >> /tmp/pkg_kadai.log 2>&1
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
@@ -34,4 +53,4 @@ cat /tmp/pkg_kadai.log
 cat /tmp/pkg_kadai2.log
 cat /tmp/pkg_kadai3.log
 echo OK
-exit = $res
+exit $res
