@@ -1,0 +1,38 @@
+[1.435s] Invoking command in '/home/naru/work/ros2_ws/src/pkg_kadai': PYTHONPATH=/home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/pkg_kadai build --build-base /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build install --record /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/install.log --single-version-externally-managed install_data
+[1.717s] running egg_info
+[1.717s] creating build/pkg_kadai/pkg_kadai.egg-info
+[1.741s] writing build/pkg_kadai/pkg_kadai.egg-info/PKG-INFO
+[1.741s] writing dependency_links to build/pkg_kadai/pkg_kadai.egg-info/dependency_links.txt
+[1.742s] writing entry points to build/pkg_kadai/pkg_kadai.egg-info/entry_points.txt
+[1.743s] writing requirements to build/pkg_kadai/pkg_kadai.egg-info/requires.txt
+[1.744s] writing top-level names to build/pkg_kadai/pkg_kadai.egg-info/top_level.txt
+[1.744s] writing manifest file 'build/pkg_kadai/pkg_kadai.egg-info/SOURCES.txt'
+[1.786s] reading manifest file 'build/pkg_kadai/pkg_kadai.egg-info/SOURCES.txt'
+[1.787s] adding license file 'LICENSE'
+[1.787s] writing manifest file 'build/pkg_kadai/pkg_kadai.egg-info/SOURCES.txt'
+[1.787s] running build
+[1.787s] running build_py
+[1.788s] creating /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build
+[1.788s] creating /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib
+[1.789s] creating /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib/pkg_kadai
+[1.789s] copying pkg_kadai/player1.py -> /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib/pkg_kadai
+[1.789s] copying pkg_kadai/__init__.py -> /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib/pkg_kadai
+[1.789s] running install
+[1.796s] running install_lib
+[1.815s] creating /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai
+[1.815s] copying /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib/pkg_kadai/player1.py -> /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai
+[1.816s] copying /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build/lib/pkg_kadai/__init__.py -> /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai
+[1.817s] byte-compiling /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai/player1.py to player1.cpython-312.pyc
+[1.818s] byte-compiling /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai/__init__.py to __init__.cpython-312.pyc
+[1.819s] running install_data
+[1.819s] creating /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/share/ament_index
+[1.820s] creating /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/share/ament_index/resource_index
+[1.820s] creating /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/share/ament_index/resource_index/packages
+[1.820s] copying resource/pkg_kadai -> /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/share/ament_index/resource_index/packages
+[1.821s] copying package.xml -> /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/share/pkg_kadai
+[1.821s] running install_egg_info
+[1.845s] Copying build/pkg_kadai/pkg_kadai.egg-info to /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages/pkg_kadai-0.0.0-py3.12.egg-info
+[1.847s] running install_scripts
+[1.979s] Installing player1 script to /home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/pkg_kadai
+[1.980s] writing list of installed files to '/home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/install.log'
+[2.017s] Invoked command in '/home/naru/work/ros2_ws/src/pkg_kadai' returned '0': PYTHONPATH=/home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/naru/work/ros2_ws/src/pkg_kadai/install/pkg_kadai/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/pkg_kadai build --build-base /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/build install --record /home/naru/work/ros2_ws/src/pkg_kadai/build/pkg_kadai/install.log --single-version-externally-managed install_data

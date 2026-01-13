@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: pkg-kadai
+Version: 0.0.0
+Summary: a package for kadai
+Maintainer: naru
+Maintainer-email: imagenaru2@gmail.com
+License: BSD-3-Clause
+Provides-Extra: test
+License-File: LICENSE
