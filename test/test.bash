@@ -27,7 +27,7 @@ expect -c "
   sleep 1
   send \"taste\r\"
   send \"/exit\r\"
-" >> /tmp/pkg_kadai.log 2>&1
+" > /tmp/pkg_kadai.log 2>&1
 sleep 2
 expect -c "
   spawn ros2 run pkg_kadai2 player2
@@ -36,7 +36,7 @@ expect -c "
   send \"test\r\"
   sleep 2
   send \"/exit\r\"
-" >> /tmp/pkg_kadai.log 2>&1
+" > /tmp/pkg_kadai2.log 2>&1
 expect -c "
   spawn ros2 run pkg_kadai3 player3
   expect \"player3> \"
@@ -44,7 +44,8 @@ expect -c "
   send \"torst\r\"
   sleep 2
   send \"/exit\r\"
-" >> /tmp/pkg_kadai.log 2>&1
+" > /tmp/pkg_kadai3.log 2>&1
+
 cat /tmp/pkg_kadai.log | grep 'player3>> torst' || ng "$LINENO"
 cat /tmp/pkg_kadai2.log | grep 'player1>> taste' || ng "$LINENO"
 cat /tmp/pkg_kadai3.log | grep 'player2>> test' || ng "$LINENO"
